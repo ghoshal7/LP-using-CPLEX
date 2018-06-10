@@ -1,0 +1,29 @@
+# reset the ampl environment
+reset;
+
+# load the model
+model lsc.mod;
+
+# load the data
+data lsc.dat;
+
+# choose CPLEX as solver
+option solver cplex;
+#option presolve 0;
+#option cplex_options 'sensitivity';
+
+
+# solving step - this would calculate the minimum cost for the problem
+solve;
+
+# display and save results in the output file
+
+printf('The optimum total cost for lsc problem is ') >lsc.out;
+display cost > lsc.out;
+
+printf('The production units in each period are ') >lsc.out;
+display x > lsc.out;
+
+printf('The storage inventory in each period are ') >lsc.out;
+display s > lsc.out;
+

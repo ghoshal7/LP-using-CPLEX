@@ -1,0 +1,28 @@
+# reset the ampl environment
+reset;
+
+# load the model
+model lscm.mod;
+
+# load the data
+data lscm.dat;
+
+# choose CPLEX as solver
+option solver cplex;
+
+#option cplex_options "timing 4"; 
+# solving step
+solve;
+
+# display and save results in the output file
+printf('The optimum total cost for lscm problem is ') >lscm.out;
+display cost > lscm.out;
+
+printf('The number of modules installed in each period are ') >lscm.out;
+display y > lscm.out;
+
+printf('The production units in each period are ') >lscm.out;
+display x > lscm.out;
+
+printf('The storage inventory in each period are ') >lscm.out;
+display s > lscm.out;
