@@ -1,1 +1,1 @@
-# LP-using-CPLEX
+# LP using AMPL CPLEX
